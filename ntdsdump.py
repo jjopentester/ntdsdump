@@ -162,7 +162,7 @@ for finalhash, finalreuse in sortedresults:
 # Check if there are any accounts with reversible passwords stored
 reversiblefile = ntdsfile + '.cleartext'
 
-if os.stat(reversiblefile).st_size != 0:
+if os.path.exists(reversiblefile) and os.stat(reversiblefile).st_size != 0:
     print('\n\nPasswords stored as reversible hash...')
     print('{0:40} {1:25}'.format('Username', 'Cleartext Password'))
     with open('ntdsdump.txt', 'a') as fileobject:
